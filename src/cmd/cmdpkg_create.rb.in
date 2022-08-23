@@ -18,16 +18,7 @@ require 'ostruct'
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# We use 'dl' for Ruby <= 1.9.x and 'fiddle' for Ruby >= 2.0.x
-if RUBY_VERSION.split('.')[0] < '2'
-  require 'dl'
-  require 'dl/import'
-  include DL
-else
-  require 'fiddle'
-  require 'fiddle/import'
-  include Fiddle
-end
+
 
 require 'optparse'
 
@@ -162,12 +153,7 @@ class Cmd
     end
     conf_version = LIBRARY_VERSION
 
-    begin
-      Importer.dlload plugin
-    rescue DLError => e
-      puts "Library error for [#{plugin}]: #{e.to_s}"
-      exit(-1)
-    end
+
 
     ##Code for package generation
     if Dir.exists?(options['name'])
