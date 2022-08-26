@@ -1,0 +1,3 @@
+base: ['cmake_lists']
+ament_cmake: ['package_xml']
+init-with-example-system: ['plugins','executable','models','worlds']
