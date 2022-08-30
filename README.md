@@ -14,10 +14,11 @@ You can get list of currently supported arguments at [tutorials](https://github.
 
 # Install
 
-These instructions are for installing only Gazebo Pkg Create Tool.
-If you're interested in using all the Gazebo libraries, check out this [Gazebo installation](https://gazebosim.org/docs/latest/install).
+Currently only source installation is supported.First build gazebo from souce ([link](https://gazebosim.org/docs/fortress/install_ubuntu_src)). Then clone this repository into src folder of your gazebo workspace. Then run  ``` colcon build --merge-install --packages-select ignition-pkg-create``` inside your gazebo workspace.
 
-Currently only source installation is supported.
+# Tutorials
+
+Please see [TUTORIALS.md](https://github.com/harshmahesheka/gz_pkg_create/blob/main/TUTORIALS.md).
 
 # Contributing
 
