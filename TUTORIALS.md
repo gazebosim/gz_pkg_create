@@ -20,7 +20,3 @@ Currently supported arguments are-
 4. **Export_type** [Default - plain_cmake]- Currently subcommand supports colcon and plain cmake export types.In colocn pkg mode it will create colocon.pkg and hooks whereas in plain-cmake it will create a .sh file for exporting required variables.
 5. **Ign_dependecies**- This argument will dependencies on common gazebo packages.
 6. **Gazebo_version** [Default- Fortress]- Specify the version of gazebo which you want dependeices for.
- 
-                             
-                          
-
