@@ -78,6 +78,12 @@ class Add_files
     executable_file.close
   end
 
+  def colcon_pkg(resources_dir,open_struct_opt,options,req_file_and_path)
+    colcon_pkg_txt=File.read(resources_dir+req_file_and_path[1])
+    colcon_pkg_file = File.new(options['name']+"/colcon.pkg", "w")
+    colcon_pkg_file.puts(colcon_pkg_txt)
+    colcon_pkg_file.close
+  end
 end
 
 def add_required_files(command,config_yaml,open_struct_opt,options,resources_dir)
@@ -85,6 +91,5 @@ def add_required_files(command,config_yaml,open_struct_opt,options,resources_dir
   for req_file_and_path in config_yaml.fetch(command)
     add_file_obj.send(req_file_and_path[0],resources_dir,open_struct_opt,options,req_file_and_path)
   end  
-  
 end
 

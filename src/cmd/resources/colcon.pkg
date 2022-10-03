@@ -1,0 +1,3 @@
+{
+  "hooks": ["share/my_package/hooks/hook.dsv"]
+}

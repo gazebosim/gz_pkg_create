@@ -41,8 +41,8 @@ COMMANDS = { 'pkg_create' =>
   "  -n [--name] arg                          Name of new package [Required]             \n\n"\
   "  -i [--init-with-example-system]          Package with various example resources     \n\n"+
   "  -b [--built_type] arg                    Build type between ament_cmake or cmake    \n\n"+
-  "  -e [--export_type] arg                   Export type between colcon or plain-camke] \n\n"+
-  "  -d [--ign_dependecies]                   Package depends on common ign packages   \n\n"+
+  "  -e [--export_type] arg                   Export type between colcon or plain-camke  \n\n"+
+  "  -d [--ign_dependecies]                   Package depends on common ign packages     \n\n"+
   "  -g [--gazebo_version] arg                Gazebo version name for dependencies       \n\n"+
   
   COMMON_OPTIONS
@@ -187,6 +187,11 @@ class Cmd
     #Creates example resources for advance package
     if options['init-with-example-system']==1
       add_required_files("init-with-example-system",config_yaml,(OpenStruct.new(options).instance_eval { binding }),options,resources_dir)
+    end
+
+    #Creates colcon.pkg file for exporting paths
+    if options['export_type'] == "colcon"
+      add_required_files("colcon_pkg",config_yaml,(OpenStruct.new(options).instance_eval { binding }),options,resources_dir)
     end
 
   # # execute
