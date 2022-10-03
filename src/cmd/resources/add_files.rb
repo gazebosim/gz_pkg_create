@@ -79,9 +79,9 @@ class Add_files
   end
 
   def colcon_pkg(resources_dir,open_struct_opt,options,req_file_and_path)
-    colcon_pkg_txt=File.read(resources_dir+req_file_and_path[1])
+    colcon_pkg_render=ERB.new(File.read(resources_dir+req_file_and_path[1]),trim_mode: ">")
     colcon_pkg_file = File.new(options['name']+"/colcon.pkg", "w")
-    colcon_pkg_file.puts(colcon_pkg_txt)
+    colcon_pkg_file.puts(colcon_pkg_render.result(open_struct_opt))
     colcon_pkg_file.close
   end
 end
